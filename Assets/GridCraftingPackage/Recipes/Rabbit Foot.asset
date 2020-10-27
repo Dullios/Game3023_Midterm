@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: badc2d24f4ad7dc42a3360f6b325f4cb, type: 3}
+  m_Name: Rabbit Foot
+  m_EditorClassIdentifier: 
+  result: {fileID: 11400000, guid: e4cb7596b89aa9748a626b146ec33176, type: 2}
+  ingredients:
+  - ingredient: {fileID: 11400000, guid: 8a76b711aa580fc49b84ecd2e9d0116a, type: 2}
+    span: 3
+  - ingredient: {fileID: 11400000, guid: 650a7bc9789110c4292db55071350eea, type: 2}
+    span: 0

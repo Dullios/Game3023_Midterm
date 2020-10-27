@@ -92,6 +92,7 @@ MonoBehaviour:
   onItemUse:
     m_PersistentCalls:
       m_Calls: []
+  isResultSlot: 0
   itemCountText: {fileID: 9066015395323224671}
   itemIcon: {fileID: 3766947018168267663}
 --- !u!1 &6866229637034768821
@@ -351,6 +352,18 @@ MonoBehaviour:
       - m_Target: {fileID: 5758771799450360208}
         m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
         m_MethodName: SelectItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5101612551763660669, guid: 50de73ea0d778404186886559b87853f, type: 3}
+        m_TargetAssemblyTypeName: CraftingManager, Assembly-CSharp
+        m_MethodName: CreateRecipe
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

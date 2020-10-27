@@ -21,6 +21,7 @@ public class ItemSelector
 
     public Item item;
     public ItemSlot source;
+    public bool isResultItem;
 
     public bool ItemSelected()
     {
@@ -30,7 +31,8 @@ public class ItemSelector
     public void ClearSelection()
     {
         item = null;
-        source.itemIcon.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        source.UpdateSlot();
         source = null;
+        isResultItem = false;
     }
 }

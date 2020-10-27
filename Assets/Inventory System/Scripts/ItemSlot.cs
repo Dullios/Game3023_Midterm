@@ -125,16 +125,22 @@ public class ItemSlot : MonoBehaviour
         }
         else if(ItemSelector.Instance().ItemSelected() && !isResultSlot)
         {
-            if(HasItem() && ItemSelector.Instance().item == ItemInSlot)
+            if (HasItem() && ItemSelector.Instance().item == ItemInSlot)
             {
                 SetContents(ItemInSlot, ItemCount + 1);
+                ItemSelector.Instance().source.DecrementItemCount();
             }
-            else
+            else if (!HasItem())
             {
+                ItemSelector.Instance().source.DecrementItemCount();
                 SetContents(ItemSelector.Instance().item, 1);
             }
 
-            ItemSelector.Instance().source.DecrementItemCount();
+            UpdateSlot();
+            ItemSelector.Instance().ClearSelection();
+        }
+        else if(ItemSelector.Instance().ItemSelected() && isResultSlot)
+        {
             ItemSelector.Instance().ClearSelection();
         }
     }
@@ -142,7 +148,7 @@ public class ItemSlot : MonoBehaviour
     /// <summary>
     /// Update visuals of slot to match items contained
     /// </summary>
-    private void UpdateSlot()
+    public void UpdateSlot()
     {
         if (ItemCount == 0)
         {
