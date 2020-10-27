@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using TMPro;
 
 public class ItemSlot : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class ItemSlot : MonoBehaviour
     private TMPro.TextMeshProUGUI itemCountText;
 
     [SerializeField]
-    private Image itemIcon;
+    public Image itemIcon;
 
     private void Update()
     {
@@ -84,6 +85,12 @@ public class ItemSlot : MonoBehaviour
         b_needsUpdate = true;
     }
 
+    public void DecrementItemCount()
+    {
+        ItemCount--;
+        b_needsUpdate = true;
+    }
+
     /// <summary>
     /// Activate the item currently held in the slot
     /// </summary>
@@ -102,23 +109,58 @@ public class ItemSlot : MonoBehaviour
     }
 
     /// <summary>
+    /// Select the item currently held in the slot, or place an item in the slot
+    /// </summary>
+    public void SelectItem()
+    {
+        if (!ItemSelector.Instance().ItemSelected())
+        {
+            if (HasItem())
+            {
+                ItemSelector.Instance().item = ItemInSlot;
+                ItemSelector.Instance().source = this;
+                itemIcon.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+            }
+        }
+        else
+        {
+            if(HasItem() && ItemSelector.Instance().item == ItemInSlot)
+            {
+                SetContents(ItemInSlot, ItemCount + 1);
+            }
+            else
+            {
+                SetContents(ItemSelector.Instance().item, 1);
+            }
+
+            ItemSelector.Instance().source.DecrementItemCount();
+            ItemSelector.Instance().ClearSelection();
+        }
+    }
+
+    /// <summary>
     /// Update visuals of slot to match items contained
     /// </summary>
     private void UpdateSlot()
     {
-        if(ItemCount == 0)
+        if (ItemCount == 0)
         {
             ItemInSlot = null;
         }
 
-      if(ItemInSlot != null)
+        if (ItemInSlot != null)
         {
             itemCountText.text = ItemCount.ToString();
             itemIcon.sprite = ItemInSlot.Icon;
-            itemIcon.gameObject.SetActive(true);
-        } else
+            itemIcon.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            //itemIcon.gameObject.SetActive(true);
+        }
+        else
         {
-            itemIcon.gameObject.SetActive(false);
+            //itemIcon.gameObject.SetActive(false);
+
+            itemIcon.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            itemIcon.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
         }
 
         b_needsUpdate = false;

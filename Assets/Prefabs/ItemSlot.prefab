@@ -93,7 +93,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   itemCountText: {fileID: 9066015395323224671}
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 3766947018168267663}
 --- !u!1 &6866229637034768821
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +350,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5758771799450360208}
         m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
-        m_MethodName: UseItem
+        m_MethodName: SelectItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

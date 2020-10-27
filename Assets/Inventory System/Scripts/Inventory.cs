@@ -16,7 +16,7 @@ public class Inventory : MonoBehaviour, ISaveHandler
 
     [Tooltip("List size determines how many slots there will be. Contents will replaced by copies of the first element")]
     [SerializeField]
-    private List<ItemSlot> itemSlots;
+    public List<ItemSlot> itemSlots;
 
     [Tooltip("Items to add on Start for testing purposes")]
     [SerializeField]
