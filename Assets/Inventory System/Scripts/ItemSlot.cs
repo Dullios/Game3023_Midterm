@@ -17,6 +17,7 @@ public class ItemSlot : MonoBehaviour
     public Item ItemInSlot { get; private set; }
     public int ItemCount { get; private set; }
 
+    public bool isResultSlot;
 
     // scene references
     [SerializeField]
@@ -122,7 +123,7 @@ public class ItemSlot : MonoBehaviour
                 itemIcon.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
             }
         }
-        else
+        else if(ItemSelector.Instance().ItemSelected() && !isResultSlot)
         {
             if(HasItem() && ItemSelector.Instance().item == ItemInSlot)
             {

@@ -312,6 +312,7 @@ MonoBehaviour:
   - {fileID: 0}
   result: {fileID: 1592981778261709972}
   inventory: {fileID: 0}
+  indexOffset: 0
 --- !u!1001 &478976505501804671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1133,6 +1134,10 @@ PrefabInstance:
       propertyPath: itemIcon
       value: 
       objectReference: {fileID: 8253536589792892504}
+    - target: {fileID: 5758771799450360208, guid: 91ce81d0127a393438b8ab2c1140625f, type: 3}
+      propertyPath: isResultSlot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5825399428661129539, guid: 91ce81d0127a393438b8ab2c1140625f, type: 3}
       propertyPath: m_Name
       value: ItemSlot
