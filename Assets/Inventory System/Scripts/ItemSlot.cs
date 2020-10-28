@@ -114,30 +114,28 @@ public class ItemSlot : MonoBehaviour
     /// </summary>
     public void SelectItem()
     {
+        // If no item is currently selected
         if (!ItemSelector.Instance().ItemSelected())
         {
-            if(isResultSlot && HasItem())
-            {
-                ItemSelector.Instance().item = ItemInSlot;
-                ItemSelector.Instance().source = this;
-                ItemSelector.Instance().isResultItem = true;
-                itemIcon.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
-            }
-            else if (HasItem())
+            if (HasItem())
             {
                 ItemSelector.Instance().item = ItemInSlot;
                 ItemSelector.Instance().source = this;
                 itemIcon.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+                ItemSelector.Instance().isResultItem = isResultSlot;
             }
         }
+        // If an item is currently selected and you are not clicking on the result ItemSlot
         else if(ItemSelector.Instance().ItemSelected() && !isResultSlot)
         {
             bool isPlaced = false;
 
+            // If the currently selected item is NOT the result item and it does not match the item in the clicked ItemSlot
             if(!ItemSelector.Instance().isResultItem && HasItem() && ItemSelector.Instance().item != ItemInSlot)
             {
                 isPlaced = true;
             }
+            // If the currently selected item matches the item in the clicked ItemSlot
             else if (HasItem() && ItemSelector.Instance().item == ItemInSlot)
             {
                 SetContents(ItemInSlot, ItemCount + 1);
@@ -155,6 +153,7 @@ public class ItemSlot : MonoBehaviour
                 ItemSelector.Instance().ClearSelection();
             UpdateSlot();
         }
+        // Deselects your item if its not the result item and you click on the result slot
         else if(ItemSelector.Instance().ItemSelected() && isResultSlot && !ItemSelector.Instance().isResultItem)
         {
             ItemSelector.Instance().ClearSelection();

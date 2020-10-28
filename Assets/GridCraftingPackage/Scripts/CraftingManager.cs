@@ -63,6 +63,9 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks the grid's temporary recipe to the list of recipe in the recipeBook
+    /// </summary>
     private void CheckRecipeList()
     {
         bool recipeFound = true;
