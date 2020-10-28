@@ -116,7 +116,14 @@ public class ItemSlot : MonoBehaviour
     {
         if (!ItemSelector.Instance().ItemSelected())
         {
-            if (HasItem())
+            if(isResultSlot && HasItem())
+            {
+                ItemSelector.Instance().item = ItemInSlot;
+                ItemSelector.Instance().source = this;
+                ItemSelector.Instance().isResultItem = true;
+                itemIcon.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+            }
+            else if (HasItem())
             {
                 ItemSelector.Instance().item = ItemInSlot;
                 ItemSelector.Instance().source = this;
@@ -125,21 +132,30 @@ public class ItemSlot : MonoBehaviour
         }
         else if(ItemSelector.Instance().ItemSelected() && !isResultSlot)
         {
-            if (HasItem() && ItemSelector.Instance().item == ItemInSlot)
+            bool isPlaced = false;
+
+            if(!ItemSelector.Instance().isResultItem && HasItem() && ItemSelector.Instance().item != ItemInSlot)
+            {
+                isPlaced = true;
+            }
+            else if (HasItem() && ItemSelector.Instance().item == ItemInSlot)
             {
                 SetContents(ItemInSlot, ItemCount + 1);
                 ItemSelector.Instance().source.DecrementItemCount();
+                isPlaced = true;
             }
             else if (!HasItem())
             {
                 ItemSelector.Instance().source.DecrementItemCount();
                 SetContents(ItemSelector.Instance().item, 1);
+                isPlaced = true;
             }
-
+            
+            if(isPlaced)
+                ItemSelector.Instance().ClearSelection();
             UpdateSlot();
-            ItemSelector.Instance().ClearSelection();
         }
-        else if(ItemSelector.Instance().ItemSelected() && isResultSlot)
+        else if(ItemSelector.Instance().ItemSelected() && isResultSlot && !ItemSelector.Instance().isResultItem)
         {
             ItemSelector.Instance().ClearSelection();
         }

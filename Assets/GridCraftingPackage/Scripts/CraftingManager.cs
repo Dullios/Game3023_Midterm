@@ -96,4 +96,18 @@ public class CraftingManager : MonoBehaviour
             result.SetContents(result.ItemInSlot, 0);
         }
     }
+
+    /// <summary>
+    /// Reduce all the ingredients in the grid by one
+    /// </summary>
+    public void ConsumeIngredients()
+    {
+        if (result.HasItem())
+        {
+            foreach (ItemSlot slot in craftingGrid)
+            {
+                slot.SetContents(slot.ItemInSlot, slot.ItemCount - 1);
+            }
+        }
+    }
 }

@@ -11915,6 +11915,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4097221140846669917, guid: ecb0877a918e45645a1511232e0f3a42, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ConsumeIngredients
+      objectReference: {fileID: 0}
     - target: {fileID: 4331785900491953082, guid: ecb0877a918e45645a1511232e0f3a42, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
