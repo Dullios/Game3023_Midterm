@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2eb779bcb215ff84eb388010b08c7ec1, type: 3}
-  m_Name: I_RabbitFoot
+  m_Name: I_Key
   m_EditorClassIdentifier: 
-  itemID: 20
-  name: Rabbit's Foot
-  description: A lucky rabbit's foot.
+  itemID: 13
+  name: Key
+  description: This is a useful key
   category: misc
-  icon: {fileID: 21300000, guid: e88a6c3987cd86646bac83467e46c772, type: 3}
+  icon: {fileID: 21300000, guid: 817c92947b12b564b9cdbdac32bf649c, type: 3}

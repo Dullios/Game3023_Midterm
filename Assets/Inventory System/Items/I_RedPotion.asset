@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb779bcb215ff84eb388010b08c7ec1, type: 3}
   m_Name: I_RedPotion
   m_EditorClassIdentifier: 
-  itemID: 13
+  itemID: 22
   name: Red Potion
   description: this is an item
   category: misc

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2eb779bcb215ff84eb388010b08c7ec1, type: 3}
-  m_Name: I_RabbitFoot
+  m_Name: I_Sapphire
   m_EditorClassIdentifier: 
-  itemID: 20
-  name: Rabbit's Foot
-  description: A lucky rabbit's foot.
+  itemID: 23
+  name: Sapphire
+  description: This is a valuable sapphire gem
   category: misc
-  icon: {fileID: 21300000, guid: e88a6c3987cd86646bac83467e46c772, type: 3}
+  icon: {fileID: 21300000, guid: 3bbad56c6d924c94088b51d104168b0e, type: 3}

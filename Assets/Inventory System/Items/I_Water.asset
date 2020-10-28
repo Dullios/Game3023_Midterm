@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb779bcb215ff84eb388010b08c7ec1, type: 3}
   m_Name: I_Water
   m_EditorClassIdentifier: 
-  itemID: 14
+  itemID: 24
   name: Water
   description: this is an item
   category: misc
