@@ -41,7 +41,7 @@ public class CraftingManager : MonoBehaviour
             {
                 gridIngredient = craftingGrid[i].ItemInSlot;
             }
-            else if(craftingGrid[i].HasItem() && gridSpan > 0)
+            else if(craftingGrid[i].HasItem() && gridSpan >= 0)
             {
                 gridSpan++;
                 tempRecipe.Add(new Ingredient(gridIngredient, gridSpan));
@@ -67,9 +67,10 @@ public class CraftingManager : MonoBehaviour
     {
         bool recipeFound = true;
 
-        foreach(RecipeScriptableObject recipe in recipeBook.recipeList)
+        foreach (RecipeScriptableObject recipe in recipeBook.recipeList)
         {
-            for(int i = 0; i < recipe.ingredients.Length; i++)
+            recipeFound = true;
+            for (int i = 0; i < recipe.ingredients.Length; i++)
             {
                 if (tempRecipe.Count != recipe.ingredients.Length)
                 {
@@ -84,14 +85,14 @@ public class CraftingManager : MonoBehaviour
                 }
             }
 
-            if(recipeFound)
+            if (recipeFound)
             {
                 result.SetContents(recipe.result, 1);
                 break;
             }
         }
 
-        if(!recipeFound)
+        if (!recipeFound)
         {
             result.SetContents(result.ItemInSlot, 0);
         }
